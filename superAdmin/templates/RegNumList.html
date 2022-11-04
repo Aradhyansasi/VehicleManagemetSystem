@@ -1,0 +1,49 @@
+{%extends 'base.html'%}
+
+{%block body_block%}
+
+
+  <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <hr class="mt-5">
+            {%for reg in regnums%}
+            Vehicle Number : <b>{{reg.vehicle_number}}</b> <br>
+            Vehicle Type   : <b>{{reg.vehicle_type}}</b> <br>
+            Vehicle Model  : <b>{{reg.vehicle_model}}</b> <br>
+            Vehicle Description  : <b>{{reg.vehicle_description}}</b> <br>
+            <a href="{%url 'edit-reg' reg.id%}" class="btn btn-outline-warning mt-4" style="color:black;" ><b>Edit</b></a>
+            <a href="{%url 'remove-reg' reg.id%}" class="btn btn-outline-warning mt-4" style="color:black;" ><b>Delete</b></a>
+            <hr>
+            {%endfor%}
+
+          <div class="row">
+          <div class="col-2"></div>
+          <div class="col-8">
+              <div class="pagination">
+                    <span class="step-links">
+                        {% if page_obj.has_previous %}
+                            <a href="?page=1" style="color:blue;">&laquo; first</a>
+                            <a href="?page={{ page_obj.previous_page_number }}" style="color:blue;">previous</a>
+                        {% endif %}
+
+                        <span class="current">
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                        </span>
+
+                        {% if page_obj.has_next %}
+                            <a href="?page={{ page_obj.next_page_number }}" style="color:blue;">next</a>
+                            <a href="?page={{ page_obj.paginator.num_pages }}" style="color:blue;">last &raquo;</a>
+                        {% endif %}
+
+                    </span>
+                </div>
+          </div>
+
+          <div class="col-2"></div>
+      </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+
+{%endblock%}

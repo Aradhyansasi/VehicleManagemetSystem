@@ -1,0 +1,67 @@
+{%extends 'base.html'%}
+
+{%block body_block%}
+
+
+   <div class="row">
+  <div class="col-4"></div>
+  <div class="col-4">
+
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-4 mt-2">
+
+        <h4><u>All Register Number</u></h4>
+
+      </div>
+      <div class="col-4"></div>
+    </div>
+      {%for reg in regnums%}
+          <div class="card bg-dark" style="color:white;">
+        <div class="card-header">
+          <h5>Vehicle Number : <b>{{reg.vehicle_number}} </b></h5>
+        </div>
+        <div class="card-body mt-5 p-5">
+          <h5 class="card-title">Vehicle Type   :  <b>{{reg.vehicle_type}}</b></h5>
+          <p class="card-text">Vehicle Model  :  <b>{{reg.vehicle_model}}</b> </p>
+          <p class="card-text mt-3">Vehicle Description  :  <b>{{reg.vehicle_description}}</b> </p>
+            <a href="{%url 'admin-edit' reg.id%}" class="btn btn-primary">Edit</a>
+        </div>
+      </div>
+    <hr>
+      {%endfor%}
+
+      <div class="row">
+          <div class="col-2"></div>
+          <div class="col-8">
+              <div class="pagination">
+                    <span class="step-links">
+                        {% if page_obj.has_previous %}
+                            <a href="?page=1" style="color:blue;">&laquo; first</a>
+                            <a href="?page={{ page_obj.previous_page_number }}" style="color:blue;">previous</a>
+                        {% endif %}
+
+                        <span class="current">
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                        </span>
+
+                        {% if page_obj.has_next %}
+                            <a href="?page={{ page_obj.next_page_number }}" style="color:blue;">next</a>
+                            <a href="?page={{ page_obj.paginator.num_pages }}" style="color:blue;">last &raquo;</a>
+                        {% endif %}
+
+                    </span>
+                </div>
+          </div>
+
+          <div class="col-2"></div>
+      </div>
+
+  </div>
+
+  </div>
+  <div class="col-4"></div>
+
+<br><br>
+
+{%endblock%}
