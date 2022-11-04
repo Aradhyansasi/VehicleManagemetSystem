@@ -44,14 +44,14 @@
             {%endif%}
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item me-5">
             {%if request.user.is_superAdmin%}
             <a class="nav-link" style="color:white;" href="{%url 'add-reg'%}">Create Registration Details</a>
             {%endif%}
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" style="color:white;" href="{%url 'signout'%}">Signout</a>
+        <li class="nav-item ms-5">
+            <a class="nav-link" style="color:white;" href="{%url 'signout'%}">Signout <span style="color:blue">{{request.user}}</span></a>
         </li>
 
       </ul>

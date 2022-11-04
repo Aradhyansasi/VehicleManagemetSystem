@@ -11,7 +11,7 @@
       <div class="col-4"></div>
       <div class="col-4 mt-2">
 
-        <h4><u>All Register Number</u></h4>
+        <h4 class="mt-5 mb-5">All Register Number</h4>
 
       </div>
       <div class="col-4"></div>
@@ -21,11 +21,11 @@
         <div class="card-header">
           <h5>Vehicle Number : <b>{{reg.vehicle_number}} </b></h5>
         </div>
-        <div class="card-body mt-5 p-5">
+        <div class="card-body">
           <h5 class="card-title">Vehicle Type   :  <b>{{reg.vehicle_type}}</b></h5>
           <p class="card-text">Vehicle Model  :  <b>{{reg.vehicle_model}}</b> </p>
           <p class="card-text mt-3">Vehicle Description  :  <b>{{reg.vehicle_description}}</b> </p>
-            <a href="{%url 'admin-edit' reg.id%}" class="btn btn-primary">Edit</a>
+            <a href="{%url 'admin-edit' reg.id%}" class="btn btn-outline-warning">Edit</a>
         </div>
       </div>
     <hr>
